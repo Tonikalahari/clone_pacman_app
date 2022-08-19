@@ -3,8 +3,7 @@ import 'package:clone_pacman_app/players/game_sprite.dart';
 
 const double tabuleiroSize = 16;
 
-class NpcPlayer extends SimpleEnemy
-    with ObjectCollision, AutomaticRandomMovement {
+class NpcPlayer extends SimpleEnemy with ObjectCollision, AutomaticRandomMovement {
   NpcPlayer({required super.position, required super.size})
       : super(
           animation: SimpleDirectionAnimation(
@@ -16,7 +15,7 @@ class NpcPlayer extends SimpleEnemy
             runDown: NpcSprite.npcRunDown,
           ),
           speed: 25,
-          life: 100,
+          life: 10,
         ) {
     setupCollision(
       CollisionConfig(collisions: [
@@ -29,27 +28,33 @@ class NpcPlayer extends SimpleEnemy
   }
   @override
   bool onCollision(GameComponent component, bool active) {
+    if (component is Attack) {
+      removeFromParent();
+    }
     super.onCollision(component, active);
 
     return super.onCollision(component, active);
   }
+  
 
   @override
   void update(double dt) {
-    runRandomMovement(
-      dt,
-      speed: speed / 3,
-      maxDistance: (tabuleiroSize * tabuleiroSize).toInt(),
-    );
+    
+    
     seeAndMoveToPlayer(
       closePlayer: (player) {
         simpleAttackMelee(
             damage: 100,
             size: Vector2(20, 20),
-            direction: lastDirectionHorizontal,
+            direction: lastDirection,
             withPush: true,
             sizePush: 10);
       },
+      notObserved: () => runRandomMovement(
+      dt,
+      speed: speed / 3,
+      maxDistance: (tabuleiroSize * tabuleiroSize).toInt(),
+    ),
       radiusVision: tabuleiroSize * 10,
     );
 
@@ -67,4 +72,3 @@ class NpcPlayer extends SimpleEnemy
     super.die();
   }
 }
-

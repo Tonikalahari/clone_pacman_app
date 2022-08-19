@@ -1,3 +1,4 @@
+import 'package:bonfire/bonfire.dart';
 import 'package:flame/components.dart';
 
 /// Nesse arquivo definimos a animação do player por meio de uma classe que nomeamos de PacSprite,
@@ -127,5 +128,16 @@ class NpcSpriteDeath {
             stepTime: 0.18,
             textureSize: Vector2(24, 24),
             texturePosition: Vector2(96, 120)),
+      );
+}
+
+class Attack {
+  static Future<SpriteAnimation> simpleAttack() => SpriteAnimation.load(
+        'attack_bullet.png',
+        SpriteAnimationData.sequenced(
+          amount: 3,
+          stepTime: 0.15,
+          textureSize: Vector2(16, 16),
+        ),
       );
 }

@@ -18,7 +18,7 @@ class WinGame extends GameComponent {
                 content: const Center(
                   heightFactor: 0.4,
                   child: Text(
-                    'You Win',
+                    'Parabéns você Venceu',
                     style: TextStyle(
                       fontSize: 32,
                       fontWeight: FontWeight.bold,
@@ -31,7 +31,7 @@ class WinGame extends GameComponent {
                         loadStage();
                       },
                       child: const Text(
-                        'Iniciar',
+                        'Iniciar novamente',
                         style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
                       ))
                 ],

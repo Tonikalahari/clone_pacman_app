@@ -9,7 +9,9 @@ import 'game/start_game_page.dart';
 const double tabuleiroSize = 16;
 
 void main() {
-  
+  BonfireInjector.instance.put((i) => ScorePointController());
+  WidgetsFlutterBinding.ensureInitialized();
+
   BonfireInjector.instance.put(
     (i) => PlayerControlador(),
   );
@@ -50,29 +52,24 @@ class HomeGamePage extends StatefulWidget {
 class _HomeGamePageState extends State<HomeGamePage> implements GameListener {
   late GameController controller;
   GemBloc gemBloc = GemBloc();
+  late ScorePointController scorePointController;
 
   @override
   void initState() {
+    scorePointController = BonfireInjector.instance.get();
+    scorePointController.addListener(_listener);
     controller = GameController()..addListener(this);
 
     super.initState();
   }
 
- 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-        title: StreamBuilder<int>(
-            initialData: 0,
-            stream: gemBloc.output,
-            builder: (context, snapshot) {
-              return Text('Points: ${snapshot.data}');
-            }),
-      ),
+      appBar: AppBar(backgroundColor: Colors.black, title: Text('Points : ${scorePointController.score}')
+         
+          ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: GamePac(controller: controller),
@@ -86,5 +83,20 @@ class _HomeGamePageState extends State<HomeGamePage> implements GameListener {
   @override
   void updateGame() {
     gemBloc.incrementCounter;
+  }
+
+  void _listener() {
+    setState(() {});
+  }
+}
+
+class ScorePointController extends ChangeNotifier {
+  int _score = 0;
+
+  int get score => _score;
+
+  void increment({int qtd = 10}) {
+    _score += qtd;
+    notifyListeners();
   }
 }

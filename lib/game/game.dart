@@ -1,5 +1,3 @@
-
-
 import 'package:bonfire/bonfire.dart';
 import 'package:flutter/material.dart';
 
@@ -7,7 +5,9 @@ import '../component/components.dart';
 import '../players/gemas.dart';
 import '../players/npcs.dart';
 import '../players/pac_clone_player.dart';
+
 const double tabuleiroSize = 16;
+
 class GamePac extends StatefulWidget {
   const GamePac({
     Key? key,
@@ -26,7 +26,16 @@ class _GamePacState extends State<GamePac> {
     return BonfireTiledWidget(
       gameController: widget.controller,
       joystick: Joystick(
-        directional: JoystickDirectional(),
+        directional: JoystickDirectional(
+          color: Colors.grey[500]!,
+        ),
+        actions: [
+          JoystickAction(
+              actionId: 1,
+              color: Colors.grey[500]!,
+              margin: const EdgeInsets.only(right: 30, bottom: 80)),
+              
+        ],
       ),
       map: TiledWorldMap(
         'pcman_mapa.json',
