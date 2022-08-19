@@ -4,13 +4,12 @@ A new Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Esse projeto é um jogo que tem como objetivo replicar algumas das funcionalidades e caracteristicas do classico game PacMan.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Todo o projeto foi desenvolvido com o auxilio da biblioteca "bonfire" utilizada para construção da jogabilidade e ações do jogo, e para
+a construção do mapa foi utilizado o programa gráfico "Tiled" que é responsável por transformar o mapa e seus elementos visuais em um documento
+do tipo JSON onde todo o mapa é transformado em um array de posições junto com a posição e nome dos elementos do mapa.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+O objetivo do jogo é recolher todos os diamantes e derrotar os fantasmas, quando player recolhe metade dos diamantes ele adiquire
+um poder especial capaz de derrotar os inimigos.
