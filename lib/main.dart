@@ -1,5 +1,4 @@
 import 'package:bonfire/bonfire.dart';
-import 'package:clone_pacman_app/players/gemas.dart';
 import 'package:clone_pacman_app/players/pac_clone_player.dart';
 import 'package:flutter/material.dart';
 
