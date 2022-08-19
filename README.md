@@ -13,3 +13,6 @@ do tipo JSON onde todo o mapa é transformado em um array de posições junto co
 
 O objetivo do jogo é recolher todos os diamantes e derrotar os fantasmas, quando player recolhe metade dos diamantes ele adiquire
 um poder especial capaz de derrotar os inimigos.
+
+
+Essa aplicação roda no Mobile, Web e Windowns, preferencialmente web usando chrome para uma melhor experiencia.
