@@ -1,11 +1,10 @@
-import 'dart:async';
 
 import 'package:bonfire/bonfire.dart';
 import 'package:clone_pacman_app/players/pac_clone_player.dart';
 
 
 
-class Gem extends GameDecoration with ObjectCollision, GemBloc {
+class Gem extends GameDecoration with ObjectCollision {
 
   
   
@@ -39,18 +38,4 @@ class Gem extends GameDecoration with ObjectCollision, GemBloc {
   }
 
  
-}
-
-int counter = 0;
-int gem = 10;
-
-class GemBloc {
-  final StreamController<int> _streamController = StreamController<int>();
-  Sink<int> get input => _streamController.sink;
-  Stream<int> get output => _streamController.stream;
-
-  void incrementCounter() {
-    counter + gem;
-    input.add(counter);
-  }
 }

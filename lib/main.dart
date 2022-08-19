@@ -51,7 +51,7 @@ class HomeGamePage extends StatefulWidget {
 
 class _HomeGamePageState extends State<HomeGamePage> implements GameListener {
   late GameController controller;
-  GemBloc gemBloc = GemBloc();
+  
   late ScorePointController scorePointController;
 
   @override
@@ -82,7 +82,7 @@ class _HomeGamePageState extends State<HomeGamePage> implements GameListener {
 
   @override
   void updateGame() {
-    gemBloc.incrementCounter;
+    
   }
 
   void _listener() {
