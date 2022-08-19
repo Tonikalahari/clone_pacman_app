@@ -29,7 +29,7 @@ class StartGamePage extends StatelessWidget {
             height: 100,
           ),
           Image.asset(
-            'images/crystal_01d.png',
+            "assets/images/crystal_01d.png",
             width: 50,
             height: 50,
             fit: BoxFit.contain,

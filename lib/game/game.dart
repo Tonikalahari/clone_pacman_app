@@ -28,12 +28,13 @@ class _GamePacState extends State<GamePac> {
       joystick: Joystick(
         directional: JoystickDirectional(
           color: Colors.grey[500]!,
+          margin: const EdgeInsets.only(left: 75, bottom: 60)
         ),
         actions: [
           JoystickAction(
               actionId: 1,
               color: Colors.grey[500]!,
-              margin: const EdgeInsets.only(right: 30, bottom: 80)),
+              margin: const EdgeInsets.only(right: 25, bottom: 40)),
               
         ],
       ),
